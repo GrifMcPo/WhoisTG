@@ -2,8 +2,8 @@ name: Run Telegram Bot
 
 on:
   schedule:
-    - cron: '*/5 * * * *'  # Запуск каждые 5 минут
-  workflow_dispatch:  # Ручной запуск
+    - cron: '*/5 * * * *'  # Каждые 5 минут
+  workflow_dispatch:       # Ручной запуск
 
 jobs:
   bot:
@@ -24,8 +24,6 @@ jobs:
       - name: Run bot
         env:
           BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
-          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
-          OPENROUTER_MODEL: ${{ secrets.OPENROUTER_MODEL }}
         run: |
           python bot.py &
           sleep 300
